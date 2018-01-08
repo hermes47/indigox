@@ -34,3 +34,6 @@
 # Build directories
 build
 docs
+
+# Xcode file
+indigox.xcodeproj
