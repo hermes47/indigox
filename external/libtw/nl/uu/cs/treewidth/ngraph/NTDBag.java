@@ -38,7 +38,6 @@ public class NTDBag<D> {
 		int groupSize = (int)Math.ceil( Math.sqrt(vertices.size()) );
 		int i=0;
 		for( NVertex<D> v : vertices ) {
-			if( i%groupSize==0 && i!=0 ) writer.write( "\\n" );
 			writer.write( v.data.toString() + " " );
 			++i;
 		}
