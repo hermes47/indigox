@@ -183,8 +183,6 @@ public class QuickBB< D extends InputData > implements UpperBound<D>, Permutatio
 		
 		if( s.f< upperbound)
 			BB(s);
-		else
-			System.out.println("*** No branching; treewidth found by UB en LB ***");
 		
 		//Information about the memorization.
 		//System.out.println("# created bitsets: "+sets.size());

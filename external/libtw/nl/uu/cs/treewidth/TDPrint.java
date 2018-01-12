@@ -16,7 +16,7 @@ public class TDPrint {
   /**
    * @param args
    */
-  public static String nativeMain(String str_graph, String algorithm) {
+  public static String nativeMain(String str_graph) {
     NGraph<InputData> g;
     Reader sr = new StringReader( str_graph );
     GraphInput in = new DgfReader( sr );
@@ -28,29 +28,12 @@ public class TDPrint {
       return "JAVA_ERROR: Exception reading the graph" ;
     }
     
-    
-    MaximumMinimumDegreePlusLeastC<InputData> lbAlgo = new MaximumMinimumDegreePlusLeastC<InputData>();
-    lbAlgo.setInput( g );
-    lbAlgo.run();
-    int lowerbound = lbAlgo.getLowerBound();
-    
-    GreedyFillIn<InputData> ubAlgo = new GreedyFillIn<InputData>();
-    ubAlgo.setInput( g );
-    ubAlgo.run();
-    int upperbound = ubAlgo.getUpperBound();
-    
     NVertexOrder<InputData> permutation = null;
     
-    if( lowerbound == upperbound ) {
-      permutation = ubAlgo.getPermutation();
-    } else if( algorithm.equals( "upperbound" ) ) {
-      permutation = ubAlgo.getPermutation();
-    } else {
-      QuickBB<InputData> qbbAlgo = new QuickBB<InputData>();
-      qbbAlgo.setInput( g );
-      qbbAlgo.run();
-      permutation = qbbAlgo.getPermutation();
-    }
+   QuickBB<InputData> qbbAlgo = new QuickBB<InputData>();
+   qbbAlgo.setInput( g );
+   qbbAlgo.run();
+   permutation = qbbAlgo.getPermutation();
     
     PermutationToTreeDecomposition<InputData> convertor = new PermutationToTreeDecomposition<InputData>( permutation );
     convertor.setInput( g );
