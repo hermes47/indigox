@@ -48,7 +48,7 @@ public class DotWriter {
 		for( Vertex<T> v : g.vertices ) {
 			String name = "v"+vertexNum++;
 			vertexToName.put( v, name );
-			out.write( "\t" + name + " [label=\"" + v.data + "\"]\n" );
+			out.write( "    " + name + " [label=\"" + v.data + "\"]\n" );
 		}
 		
 		out.write( "\n" );
@@ -56,7 +56,7 @@ public class DotWriter {
 		for( Edge<T> e : g.getEdges() ) {
 			String nameA = vertexToName.get(e.a);
 			String nameB = vertexToName.get(e.b);
-			out.write( "\t" + nameA + " -- " + nameB + "\n" );
+			out.write( "    " + nameA + " -- " + nameB + "\n" );
 		}
 		
 		out.write( "\n" ); 
@@ -78,7 +78,7 @@ public class DotWriter {
 				label = name;
 			
 			
-			out.write( "\t" + name + " [label=\"" + label + "\"]\n" );
+			out.write( "    " + name + " [label=\"" + label + "\"]\n" );
 		}
 		
 		out.write( "\n" );
@@ -86,7 +86,7 @@ public class DotWriter {
 		for( NeighborHashSetEdge<T> e : g.getEdges() ) {
 			String nameA = vertexToName.get(e.a);
 			String nameB = vertexToName.get(e.b);
-			out.write( "\t" + nameA + " -- " + nameB + "\n" );
+			out.write( "    " + nameA + " -- " + nameB + "\n" );
 		}
 		
 		out.write( "\n" ); 
@@ -108,7 +108,7 @@ public class DotWriter {
 				label = name;
 			
 			
-			out.write( "\t" + name + " [label=\"" + label + "\"]\n" );
+			out.write( "    " + name + " [label=\"" + label + "\"]\n" );
 		}
 		
 		out.write( "\n" );
@@ -116,7 +116,7 @@ public class DotWriter {
 		for( NEdge<D> e : g.edges() ) {
 			String nameA = vertexToName.get(e.a);
 			String nameB = vertexToName.get(e.b);
-			out.write( "\t" + nameA + " -- " + nameB + "\n" );
+			out.write( "    " + nameA + " -- " + nameB + "\n" );
 		}
 		
 		out.write( "\n" ); 
@@ -134,7 +134,7 @@ public class DotWriter {
 		for( NVertex<NTDBag<D>> v : g ) {
 			String bagName = "bag"+bagNum++;
 			bagToName.put( v, bagName );
-			out.write( "\t" + bagName + " [label=\"" + v.data.format() + "\"]\n" );
+			out.write( "    " + bagName + " [label=\"" + v.data.format() + "\"]\n" );
 		}
 		
 		out.write( "\n" );
@@ -142,7 +142,7 @@ public class DotWriter {
 		for( NEdge<NTDBag<D>> e : g.edges() ) {
 			String nameA = bagToName.get(e.a);
 			String nameB = bagToName.get(e.b);
-			out.write( "\t" + nameA + " -- " + nameB + "\n" );
+			out.write( "    " + nameA + " -- " + nameB + "\n" );
 		}
 		
 		out.write( "\n" ); 
@@ -162,7 +162,7 @@ public class DotWriter {
 		for( Vertex<TDBag<InputData>> v : g.vertices ) {
 			String bagName = "bag"+bagNum++;
 			bagToName.put( v, bagName );
-			out.write( "\t" + bagName + " [label=\"" + v.data.format() + "\"]\n" );
+			out.write( "    " + bagName + " [label=\"" + v.data.format() + "\"]\n" );
 		}
 		
 		out.write( "\n" );
@@ -170,7 +170,7 @@ public class DotWriter {
 		for( Edge<TDBag<InputData>> e : g.getEdges() ) {
 			String nameA = bagToName.get(e.a);
 			String nameB = bagToName.get(e.b);
-			out.write( "\t" + nameA + " -- " + nameB + "\n" );
+			out.write( "    " + nameA + " -- " + nameB + "\n" );
 		}
 		
 		out.write( "\n" ); 

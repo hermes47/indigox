@@ -34,14 +34,12 @@ public class TDPrint {
    qbbAlgo.setInput( g );
    qbbAlgo.run();
    permutation = qbbAlgo.getPermutation();
-    
+// System.out.println(permutation.toString());     
+
     PermutationToTreeDecomposition<InputData> convertor = new PermutationToTreeDecomposition<InputData>( permutation );
     convertor.setInput( g );
-    try {
-      convertor.run();
-    } catch (IndexOutOfBoundsException e) {
-      return "JAVA_ERROR: Exception converting a permutation to a tree decomposition." ;
-    }
+    convertor.run();
+
     NGraph<NTDBag<InputData>> decomposition = convertor.getDecomposition();
     DotWriter dw = new DotWriter();
     return dw.formatTD(decomposition);

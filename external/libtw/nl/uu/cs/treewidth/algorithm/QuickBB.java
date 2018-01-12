@@ -148,8 +148,13 @@ public class QuickBB< D extends InputData > implements UpperBound<D>, Permutatio
 		s.h = mmw.getLowerBound();
 		s.f = s.h;
 		
+        permutation = new NVertexOrder<QuickBBData>( gfi.getPermutation().order.size() );
 		//s.perm = gfi.getPermutation();
-		permutation = gfi.getPermutation();
+        for( NVertex<QuickBB<D>.QuickBBData> v : gfi.getPermutation().order ) {
+            permutation.order.add( graph.getVertex(v.data.id) );
+        }
+        //System.out.println(permutation.toString());
+		//permutation = gfi.getPermutation();
 		
 		//Debug code with information about the initial upperbound
 		//System.out.println("Initial upperbound set to "+upperbound+" (with "+gfi.getName()+")");
@@ -183,7 +188,6 @@ public class QuickBB< D extends InputData > implements UpperBound<D>, Permutatio
 		
 		if( s.f< upperbound)
 			BB(s);
-		
 		//Information about the memorization.
 		//System.out.println("# created bitsets: "+sets.size());
 		//System.out.println("# skipped nodes: "+skippedSets);
