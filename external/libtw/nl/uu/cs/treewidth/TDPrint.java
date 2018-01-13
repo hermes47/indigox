@@ -30,19 +30,11 @@ public class TDPrint {
     
     NVertexOrder<InputData> permutation = null;
     
-   QuickBB<InputData> qbbAlgo = new QuickBB<InputData>();
-   qbbAlgo.setInput( g );
-   qbbAlgo.run();
-   permutation = qbbAlgo.getPermutation();
-// System.out.println(permutation.toString());     
-
-    PermutationToTreeDecomposition<InputData> convertor = new PermutationToTreeDecomposition<InputData>( permutation );
-    convertor.setInput( g );
-    convertor.run();
-
-    NGraph<NTDBag<InputData>> decomposition = convertor.getDecomposition();
-    DotWriter dw = new DotWriter();
-    return dw.formatTD(decomposition);
+    QuickBB<InputData> qbbAlgo = new QuickBB<InputData>();
+    qbbAlgo.setInput( g );
+    qbbAlgo.run();
+    permutation = qbbAlgo.getPermutation();
+    return permutation.toString();
   }
   
   public static void main(String[] args) {

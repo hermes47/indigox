@@ -40,7 +40,7 @@ public class NVertexOrder< D > {
 	public String toString() {
 		String s = "";
 		for( NVertex<D> v : order) {
-			s = s.concat( " " + v.data.toString() );
+			s = s.concat( v.data.toString() + " " );
 		}
 		return s;
 	}
