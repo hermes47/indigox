@@ -139,7 +139,7 @@ public class QuickBB< D extends InputData > implements UpperBound<D>, Permutatio
 		}
 		n = graph.getNumberOfVertices();
 		upperbound = gfi.getUpperBound();
-		
+
 		//Run MMW to get lowerbound
 		MinorMinWidth_QuickBB mmw = new MinorMinWidth_QuickBB();		
 		mmw.setInput(graph);		
@@ -147,14 +147,11 @@ public class QuickBB< D extends InputData > implements UpperBound<D>, Permutatio
 		
 		s.h = mmw.getLowerBound();
 		s.f = s.h;
-		
-        permutation = new NVertexOrder<QuickBBData>( gfi.getPermutation().order.size() );
-		//s.perm = gfi.getPermutation();
-        for( NVertex<QuickBB<D>.QuickBBData> v : gfi.getPermutation().order ) {
-            permutation.order.add( graph.getVertex(v.data.id) );
+		int permSize = gfi.getPermutation().order.size();
+        permutation = new NVertexOrder<QuickBBData>( permSize );
+        for( int i = 0; i < permSize; i++) {
+            permutation.order.add( graph.getVertex(i) );
         }
-        //System.out.println(permutation.toString());
-		//permutation = gfi.getPermutation();
 		
 		//Debug code with information about the initial upperbound
 		//System.out.println("Initial upperbound set to "+upperbound+" (with "+gfi.getName()+")");
